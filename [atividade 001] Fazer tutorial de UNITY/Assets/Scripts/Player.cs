@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D rig;
     private Animator anim;
 
+    bool isBlowing;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,22 +34,26 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
-        transform.position += movement * Time.deltaTime * Speed;
+        //Move o personagem em uma posicao
+        //Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
+        //transform.position += movement * Time.deltaTime * Speed;
 
-        if (Input.GetAxis("Horizontal") > 0f)
+        float moviment = Input.GetAxis("Horizontal");
+        rig.velocity = new Vector2(moviment * Speed, rig.velocity.y);
+
+        if (moviment > 0f)
         {
             anim.SetBool("walk", true);
             transform.eulerAngles = new Vector3(0f,0f,0f);
         }
 
-        if (Input.GetAxis("Horizontal") < 0f)
+        if (moviment < 0f)
         {
             anim.SetBool("walk", true);
             transform.eulerAngles = new Vector3(0f, 180f, 0f);
         }
 
-        if (Input.GetAxis("Horizontal") == 0f)
+        if (moviment == 0f)
         {
             anim.SetBool("walk", false);
         }
@@ -55,7 +61,7 @@ public class Player : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && !isBlowing)
         {
             if (!isJumping)
             {
@@ -104,7 +110,13 @@ public class Player : MonoBehaviour
         }
     }
 
-
+    void OnTriggerExit2D(Collision2D collision)
+    {
+        if(collision.gameObject.layer == 11)
+        {
+            isBlowing = false;
+        }
+    }
 }
 
 

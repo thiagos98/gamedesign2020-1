@@ -42,13 +42,14 @@ public class VirtualGuy : MonoBehaviour
         }
     }
 
+    bool playerDestroyed = false;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
         {
             float height = collision.contacts[0].point.y - headPoint.position.y;
-
-            if(height > 0)
+            Debug.Log(height);
+            if(height > 0 && !playerDestroyed)
             {
                 collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10, ForceMode2D.Impulse);
                 speed = 0f;
@@ -57,6 +58,12 @@ public class VirtualGuy : MonoBehaviour
                 circleCollider2D.enabled = false;
                 rig.bodyType = RigidbodyType2D.Kinematic;
                 Destroy(gameObject,0.33f);
+            }
+            else
+            {
+                playerDestroyed = true;
+                GameController.instance.ShowGameOver();
+                Destroy(collision.gameObject);
             }
         }
     }
