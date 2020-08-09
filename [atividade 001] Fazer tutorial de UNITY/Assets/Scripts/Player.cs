@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -81,6 +82,18 @@ public class Player : MonoBehaviour
             anim.SetBool("jump", false);
 
         }
+
+        if (collision.gameObject.CompareTag("Spike"))
+        {
+            GameController.instance.ShowGameOver();
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Saw"))
+        {
+            GameController.instance.ShowGameOver();
+            Destroy(gameObject);
+        }
     }
 
     void OnCollisionExit2D(Collision2D collision)
@@ -90,6 +103,8 @@ public class Player : MonoBehaviour
             isJumping = true;
         }
     }
+
+
 }
 
 

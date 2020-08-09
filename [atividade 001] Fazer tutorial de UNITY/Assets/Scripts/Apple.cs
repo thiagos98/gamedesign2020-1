@@ -18,9 +18,9 @@ public class Apple : MonoBehaviour
         circle = GetComponent<CircleCollider2D>();
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collider.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             sr.enabled = false;
             circle.enabled = false;
