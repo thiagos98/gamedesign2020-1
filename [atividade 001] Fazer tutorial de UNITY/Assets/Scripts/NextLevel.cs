@@ -10,6 +10,7 @@ public class NextLevel : MonoBehaviour
     {
         if(collider.gameObject.CompareTag("Player"))
         {
+            GameController.instance.SaveScore(GameController.instance.totalScore);
             SceneManager.LoadScene(lvlName);
         }
     }

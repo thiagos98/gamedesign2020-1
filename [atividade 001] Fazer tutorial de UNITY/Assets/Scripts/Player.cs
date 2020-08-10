@@ -110,17 +110,18 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collision2D collision)
+    void OnTriggerStay2D(Collider2D collider)
     {
-        if(collision.gameObject.layer == 11)
+        if(collider.gameObject.layer == 11)
+        {
+            isBlowing = true;
+        }
+    }
+    void OnTriggerExit2D(Collider2D collider)
+    {
+        if(collider.gameObject.layer == 11)
         {
             isBlowing = false;
         }
     }
 }
-
-
-
-
-
-

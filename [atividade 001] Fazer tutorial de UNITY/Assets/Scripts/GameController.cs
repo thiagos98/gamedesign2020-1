@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
 
-    public int totalScore;
+    public int totalScore=0;
     public Text scoreText;
 
     public string startGame = "lvl_1";
@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         instance = this;
+        LoadScore();
     }
 
     public void updateScoreText()
@@ -39,6 +40,21 @@ public class GameController : MonoBehaviour
 
     public void StartGame()
     {
+        SaveScore(0);
         SceneManager.LoadScene(startGame);
+    }
+
+    public void QuitGame()
+    {
+       Application.Quit();
+    }
+    public void SaveScore(int score)
+    {
+        PlayerPrefs.SetInt("score",score);
+    }
+    public void LoadScore()
+    {
+        totalScore += PlayerPrefs.GetInt("score");
+        updateScoreText();
     }
 }

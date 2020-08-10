@@ -2273,17 +2273,17 @@ PrefabInstance:
     - target: {fileID: 4066933202768603470, guid: eb0dcb72bc4e71a4c8b260f17d79884c,
         type: 3}
       propertyPath: m_ForceMagnitude
-      value: 60
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 4066933202768603471, guid: eb0dcb72bc4e71a4c8b260f17d79884c,
         type: 3}
       propertyPath: m_Offset.y
-      value: 0.7769946
+      value: 0.93152255
       objectReference: {fileID: 0}
     - target: {fileID: 4066933202768603471, guid: eb0dcb72bc4e71a4c8b260f17d79884c,
         type: 3}
       propertyPath: m_Size.y
-      value: 1.6339891
+      value: 1.943045
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb0dcb72bc4e71a4c8b260f17d79884c, type: 3}
@@ -3809,6 +3809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalScore: 0
   scoreText: {fileID: 327604746}
+  startGame: lvl_1
   gameOver: {fileID: 1894122026}
 --- !u!4 &1339822075
 Transform:

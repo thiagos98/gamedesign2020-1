@@ -6,7 +6,7 @@ public class VirtualGuy : MonoBehaviour
 {
     private Rigidbody2D rig;
     private Animator anim;
-
+    public int enemyScore;
     public float speed;
     public Transform rightCol;
     public Transform leftCol;
@@ -56,6 +56,8 @@ public class VirtualGuy : MonoBehaviour
                 anim.SetTrigger("die");
                 boxCollider2D.enabled = false;
                 circleCollider2D.enabled = false;
+                GameController.instance.totalScore += enemyScore;
+                GameController.instance.updateScoreText();
                 rig.bodyType = RigidbodyType2D.Kinematic;
                 Destroy(gameObject,0.33f);
             }
