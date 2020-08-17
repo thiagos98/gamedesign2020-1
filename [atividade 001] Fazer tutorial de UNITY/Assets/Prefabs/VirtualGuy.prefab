@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adabefcca29373c468b121b9e3c558d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyScore: 1000
   speed: 3
   rightCol: {fileID: 4676688398647452772}
   leftCol: {fileID: 4676688399178564110}
