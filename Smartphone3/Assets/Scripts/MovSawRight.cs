@@ -20,7 +20,6 @@ public class MovSawRight : MonoBehaviour
         else
         {
             transform.Translate(Vector2.left * speed * Time.deltaTime);
-            transform.Rotate(0f,180f,0f);
         }
 
         timer += Time.deltaTime;
