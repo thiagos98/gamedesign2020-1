@@ -55,6 +55,7 @@ public class Enemy : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+            GameController.instance.ShowGameOver();
             Destroy(collision.gameObject);
         }
     }

@@ -89,11 +89,16 @@ public class Player : MonoBehaviour
 
         }
 
-        /*if (collision.gameObject.CompareTag("Spike"))
+        if(collision.gameObject.CompareTag("Finish"))
         {
-            //GameController.instance.ShowGameOver();
+            Debug.Log("Finalizou a fase");
+        }
+
+        if (collision.gameObject.CompareTag("Spike"))
+        {
+            GameController.instance.ShowGameOver();
             Destroy(gameObject);
-        }*/
+        }
 
         
     }
