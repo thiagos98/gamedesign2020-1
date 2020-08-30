@@ -19,14 +19,9 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        instance = this;
-        //LoadScore();
+        instance = this; 
     }
 
-    /*public void updateScoreText()
-    {
-        scoreText.text = totalScore.ToString();
-    }*/
 
     public void ShowGameOver()
     {
@@ -40,7 +35,6 @@ public class GameController : MonoBehaviour
 
     public void StartGame()
     {
-        //SaveScore(0);
         SceneManager.LoadScene(startGame);
     }
 
@@ -48,13 +42,4 @@ public class GameController : MonoBehaviour
     {
        Application.Quit();
     }
-    /*public void SaveScore(int score)
-    {
-        PlayerPrefs.SetInt("score",score);
-    }
-    public void LoadScore()
-    {
-        totalScore += PlayerPrefs.GetInt("score");
-        updateScoreText();
-    }*/
 }

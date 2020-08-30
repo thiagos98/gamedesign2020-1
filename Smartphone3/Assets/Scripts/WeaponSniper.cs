@@ -7,10 +7,27 @@ public class WeaponSniper : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
 
+    public float fireRate;
+    float nextFire;
+
+    void Start()
+    {
+        fireRate = 1f;
+        nextFire = Time.time;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        Invoke("Shoot", 0.5f);
+        CheckIfTimeToFire();
+    }
+    void CheckIfTimeToFire()
+    {
+        if(Time.time > nextFire)
+        {
+            Shoot();
+            nextFire = Time.time + fireRate;
+        }
     }
     public void Shoot()
     {

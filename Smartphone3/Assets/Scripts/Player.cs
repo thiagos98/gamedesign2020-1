@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public float health = 100;
     public float Speed;
     public float JumpForce;
 
@@ -78,6 +79,20 @@ public class Player : MonoBehaviour
                 }
             }
         }
+    }
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+
+        if(health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
     
     void OnCollisionEnter2D(Collision2D collision)
