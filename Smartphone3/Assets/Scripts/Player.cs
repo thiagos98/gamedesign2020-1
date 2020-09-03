@@ -92,6 +92,7 @@ public class Player : MonoBehaviour
 
     void Die()
     {
+        GameController.instance.ShowGameOver();
         Destroy(gameObject);
     }
     

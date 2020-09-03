@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 3458833002915513397}
   - component: {fileID: 3458833002915513398}
   - component: {fileID: 3458833002915513418}
+  - component: {fileID: 2795162034771518266}
   m_Layer: 0
   m_Name: Sniper
   m_TagString: Untagged
@@ -163,3 +164,30 @@ MonoBehaviour:
   firePoint: {fileID: 3458833002873986677}
   bulletPrefab: {fileID: 5253808749056123600, guid: c60755f589fba2346bb859e45726da40,
     type: 3}
+  fireRate: 0
+--- !u!61 &2795162034771518266
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3458833002915513399}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.004430812, y: -0.038400263}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.22843036, y: 0.24319947}
+  m_EdgeRadius: 0
