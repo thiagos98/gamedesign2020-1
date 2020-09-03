@@ -7,7 +7,9 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public float health = 100;
+    public int maxHealth = 100;
+    public int currentHealth;
+    public HealthBar healthBar;
     public float Speed;
     public float JumpForce;
 
@@ -17,12 +19,15 @@ public class Player : MonoBehaviour
     private Rigidbody2D rig;
     private Animator anim;
     public Joystick joystick;
+    public Bullet bullet;
 
     bool isBlowing;
 
     // Start is called before the first frame update
     void Start()
     {
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
@@ -82,9 +87,10 @@ public class Player : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
 
-        if(health <= 0)
+        if(currentHealth <= 0)
         {
             Die();
         }
@@ -121,8 +127,7 @@ public class Player : MonoBehaviour
             GameController.instance.ShowGameOver();
             Destroy(gameObject);
         }
-
-        
+ 
     }
 
     void OnCollisionExit2D(Collision2D collision)
@@ -130,6 +135,14 @@ public class Player : MonoBehaviour
         if (collision.gameObject.layer == 8)
         {
             isJumping = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Upgrade"))
+        {
+            bullet.damage += 20;
         }
     }
 
